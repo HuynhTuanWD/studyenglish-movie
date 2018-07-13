@@ -15,19 +15,29 @@
 	<script>
 		$(document).ready(function() {
 			var video = document.getElementById('video');
-			video.ontimeupdate = function(){
-				console.log(video.currentTime);
+			var audio = document.getElementById('audio');
+			video.onplay = function(){
+				audio.currentTime = video.currentTime;
+				audio.play();
+			}
+			video.onpause = function(){
+				audio.currentTime = video.currentTime;
+				audio.pause();
+			}
+			video.onseeked = function(){
+				audio.currentTime = video.currentTime;
 			};
 		});
 	</script>
 </head>
 
 <body>
-	<video id="video" controls="" preload="metadata" name="media">
-		<source src="https://r3---sn-i3belne6.c.drive.google.com/videoplayback?id=50e51e49a6cbce1f&amp;itag=59&amp;source=webdrive&amp;requiressl=yes&amp;mm=30&amp;mn=sn-i3belne6&amp;ms=nxu&amp;mv=m&amp;pl=21&amp;sc=yes&amp;ttl=transient&amp;ei=ymNIW-rnEsbXuAXllLmYBQ&amp;susc=dr&amp;driveid=1BgdU10N-i8bhTh48IthI7tpropU_FT_D&amp;app=texmex&amp;mime=video/mp4&amp;lmt=1518698123691451&amp;mt=1531470685&amp;ip=14.161.48.15&amp;ipbits=0&amp;expire=1531485194&amp;cp=QVNIU0VfVFFXRVhOOkUwM3BrLS1BS3RC&amp;sparams=ip,ipbits,expire,id,itag,source,requiressl,mm,mn,ms,mv,pl,sc,ttl,ei,susc,driveid,app,mime,lmt,cp&amp;signature=3A415E60D55D5BA5E538944D223478142FBA8546.6C08ED659491030ABE1DEC13629D6233E0E502D9&amp;key=ck2&amp;cpn=xSA4TxcWZWHe7tMk&amp;c=WEB_EMBEDDED_PLAYER&amp;cver=20180712" type="video/mp4"/>
+	<video id="video" controls="" preload="metadata" width="700" height="500" name="media">
+		<source src="https://video.xx.fbcdn.net/v/t42.9040-2/10000000_253242438582603_394477791061475328_n.mp4?_nc_cat=0&efg=eyJybHIiOjE1MDAsInJsYSI6NDA5NiwidmVuY29kZV90YWciOiJzdmVfaGQifQ%3D%3D&rl=1500&vabr=850&oh=c3c99b5a1f011e2748e2d6eb79d806b0&oe=5B4AAB52" type="video/mp4"/>
 		<track kind=subtitles src="subs/Coco.2017.1080p.10bit.BluRay.8CH.x265.HEVC-PSA.vtt" srclang=vi label="Vietnamese"/>
 		<track kind=subtitles src="subs/Coco.2017-en.vtt" srclang=en label="English"/>
 	</video>
+	<audio id="audio" autoplay src="http://cf-media.sndcdn.com/k4lJn0jk22Ho?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiKjovL2NmLW1lZGlhLnNuZGNkbi5jb20vazRsSm4wamsyMkhvIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNTMxNTEzNDAxfX19XX0_&Signature=hjmq0G3GuRuDiCLq0DPAq5RH4XoE3mpES46Eim6G0Gzjkmz7JMF~jo31h55uEkPm0Dv6y1LDZ81-IRw6xfhYLqVg1AWVMf4bnwUAqefBvFaApjwKN50keeGSMHwxRw-S4on4XqtgkxsaRob9esnSyl6SHTEpGfHexogwhjAEFbcFuwyNMZvGlnmIbz0eKD090ezbZXQIKc94E8Fr65QqDOTxAdtRj2490tfmorm2cNNveXDQnb5dB3-FkNuxwje178K6uiUm8DuAiP0v40rRtR1vPCO-mS3LoKlLBwBR-DXY7tF0-U18ox~JIUCK5zDVd1gH2d-XMQMnOvHLp-inXw__&Key-Pair-Id=APKAJAGZ7VMH2PFPW6UQ" autobuffer autoloop loop controls></audio>
 	<p id="time"></p>
 </body>
 
